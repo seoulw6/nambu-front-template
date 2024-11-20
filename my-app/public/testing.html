@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>나에게 꼭 맞는 영핏!</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="assets/css/meyawo.css">
+    <link rel="stylesheet" href="assets/css/mystyle.css">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="#">Young Fit!</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="#home">Home</a>
+                </li>
+
+                <li class="item">
+                    <a class="link" href="#service">Sentence Reading</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#portfolio">My Package</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#testmonial">Level Test</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#blog">Blog</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#contact">Contact</a>
+                </li>
+                <li class="item ml-md-3">
+                    <a href="join.html" class="btn btn-primary">Sign In</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
+
+    <!-- page header -->
+    <header id="home" class="header">
+        <div class="overlay"></div>
+        <div class="main-content container learning">
+            <!-- div -->
+            <div class="title">
+                <h1 class="header-title">
+                    <span class="up">Level Test</span><br>
+
+                </h1>
+                <span class="down">1/20</span>
+            </div>
+            <div class="content">
+                <div>아래 문장에 해당하는 정확한 해석을 고르시요.</div>
+                <div class="question content-ko ">I live in Seoul.</div>
+                <div class="answer">
+                    <ul>
+                        <li> <input type="radio" id="levelanswer01" name="test" value="1" />나는 서울에 산다.</li>
+                        <li> <input type="radio" id="levelanswer01" name="test" value="2" />나는 서울에 살 것이다.</li>
+                        <li> <input type="radio" id="levelanswer01" name="test" value="3" />나는 서울에 들렀다.</li>
+                        <li> <input type="radio" id="levelanswer01" name="test" value="4" />나는 서울에 살았다.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="btn btn-primary">Prev</button>
+                <button class="btn btn-primary">Next</button>
+            </div>
+
+        </div>
+    </header><!-- end of page header -->
+
+
+
+    <!-- footer -->
+    <div class="container">
+        <footer class="footer">
+            <p class="mb-0">Copyright
+                <script>document.write(new Date().getFullYear())</script> &copy; <a
+                    href="https://nambu.seoulwomanup.or.kr/">NambuWomanUp TeamProject Memories </a>
+            </p>
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+            </div>
+        </footer>
+    </div> <!-- end of page footer -->
+
+    <!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Meyawo js -->
+    <script src="assets/js/meyawo.js"></script>
+
+    <script>
+        const form = document.querySelector("form");
+        const log = document.querySelector("#log");
+
+        form.addEventListener(
+            "submit",
+            (event) => {
+                const data = new FormData(form);
+                let output = "";
+                for (const entry of data) {
+                    output = `${output}${entry[0]}=${entry[1]}\r`;
+                }
+                log.innerText = output;
+                event.preventDefault();
+            },
+            false,
+        );
+
+    </script>
+</body>
+
+</html>
