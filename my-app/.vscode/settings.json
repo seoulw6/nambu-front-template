@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/fc0507be-afbb-4176-b861-d78f5ca7f283/resourceGroups/rg-youngfit/providers/Microsoft.Web/sites/yffrontend",
+    "appService.deploySubpath": "."
+}

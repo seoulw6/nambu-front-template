@@ -1,34 +1,34 @@
 const Contact = () => {
     return (
-        <header id="contact" class="header">
+        <div id="contact" className="container">
 
-            <div class="main-content container learning">
-                <h1 class="header-title">
+            <div className="main-content container learning">
+                <h1 className="header-title">
                     <br />
-                    <span class="down">CONTACT US</span>
+                    <span className="down">CONTACT US</span>
                 </h1>
 
-                <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+                <form action="" className="contact-form col-md-10 col-lg-8 m-auto">
 
-                    <div class="form-row">
-                        <div class="form-group col-sm-12">
-                            <input type="email" size="50" class="form-control" placeholder="email" required />
+                    <div className="form-row">
+                        <div className="form-group col-sm-12">
+                            <input type="email" size="50" className="form-control" placeholder="Your email" required />
                         </div>
 
-                        <div class="form-group col-sm-12">
-                            <textarea name="content" id="content" rows="6" class="form-control"
+                        <div className="form-group col-sm-12">
+                            <textarea name="content" id="content" rows="6" className="form-control"
                                 placeholder="Write Something"></textarea>
                         </div>
 
-                        <div class="form-group col-sm-12 mt-3">
-                            <input type="submit" value="저장" class="btn btn-outline-primary rounded"
-                                onclick="location.href='mypage.html';" />
+                        <div className="form-group col-sm-12 mt-3">
+                            <input type="submit" value="저장" className="btn btn-outline-primary rounded"
+                                />
                         </div>
                     </div>
 
                 </form>
             </div>
-        </header>
+        </div>
     )
 }
 export default Contact;

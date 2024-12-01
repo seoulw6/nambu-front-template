@@ -69,7 +69,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #f1e6e6;
 }
 
 [tabindex="-1"]:focus {
@@ -11980,7 +11980,7 @@ pre .code {
   display: -webkit-flex;
   display: flex;
   min-height: 70px;
-  border-top: 1px solid #dee2e6;
+  /* border-top: 1px solid #dee2e6; */
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -12000,7 +12000,7 @@ pre .code {
 
 .footer a, .footer p {
   color: #393e46;
-  padding: 4px 0;
+  padding: 10px 0;
   display: inline-block;
   margin: 0;
 }
@@ -12127,6 +12127,7 @@ pre .code {
   font-weight: bold;
   opacity: .8;
   color: #212529;
+  padding-left:20px;
 }
 
 .header-mini {

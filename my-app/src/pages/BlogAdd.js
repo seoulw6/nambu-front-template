@@ -1,33 +1,39 @@
 import { FiPlus } from "react-icons/fi";
 
-const LearnAdd = () => {
+const BlogAdd = () => {
     return (
-        <div id="LearnAdd" className="container">
+        <div id="blogadd" className="container">
             <div className="main-content container learning">
                 <h1 className="header-title">
                     <br />
-                    <span className="down">문장추가하기 </span>
+                    <span className="down">BLOG</span>
                 </h1>
-                <p className="header-subtitle">나에게 꼭 맞는 문장으로 학습하세요!</p>
+
                 <form action="" className="contact-form col-md-10 col-lg-8 m-auto">
-                    <label>패키지명</label>
+
                     <div className="form-row">
                         <div className="form-group col-sm-12">
-                            <input type="text" size="50" className="form-control" placeholder="Package Name" readOnly />
+                            <input type="text" size="50" className="form-control" placeholder="title" required />
                         </div>
 
                     </div>
-                    <label>문장을 입력해주세요.</label>
+
                     <div className="form-row">
                         <div className="form-group col-sm-12">
-                            <input type="sentence" className="form-control" placeholder="Enter Sentence" requried />
-                            <FiPlus className="form-control" />
+                            <textarea name="content" id="content" rows="6" className="form-control"
+                                placeholder="Write Something"></textarea>
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-sm-12 mt-3">
-                            <input type="submit" value="문장 등록" className="btn btn-outline-primary rounded" />
-
+                            <input type="file" />
+                        </div>
+                    </div>
+                    <label></label>
+                    <div className="form-row">
+                        <div className="form-group col-sm-12 mt-3">
+                            <input type="submit" value="저장" className="btn btn-outline-primary rounded"
+                                />
                         </div>
                     </div>
                 </form>
@@ -35,4 +41,4 @@ const LearnAdd = () => {
         </div>
     )
 }
-export default LearnAdd;
+export default BlogAdd;

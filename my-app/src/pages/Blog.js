@@ -1,50 +1,42 @@
+import { React } from 'react';
+import { blogs } from '../datablog';
+import { Link } from 'react-router-dom';
+import { FiBookmark, FiPlus } from "react-icons/fi";
+
 const Blog = () => {
     return (
-        <header id="blog" class="header">
-
-            <div class="main-content container learning">
-                <h1 class="header-title">
+        <div id="blog" className="container">
+            <div className="main-content container learning">
+                <h1 className="header-title">
                     <br />
-                    <span class="down">BLOG</span>
+                    <span className="down">BLOG</span>
                 </h1>
+                <table className="table table-striped">
+                    <tbody>
+                        {
+                            blogs.map(({ title, id, content, date, writer }) => {
+                                return (
+                                    <tr key={id}>
+                                        <td>
+                                            <Link to={`/BlogDetail/${id}`}>
+                                                <FiBookmark />  {title} <br />
+                                                <p>{content}</p>
 
-                <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+                                                <div className="right"> 👍 0<br /> {writer} <br />{date}</div>
+                                            </Link>
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+                        <tr><td><Link to={'/BlogAdd'}>
+                            <FiPlus className='form-control' />
+                        </Link></td></tr>
+                    </tbody>
+                </table>
 
-                    <div class="form-row">
-                        <div class="form-group col-sm-12">
-                            <input type="text" size="50" class="form-control" placeholder="title" required />
-                        </div>
-
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-sm-12">
-                            <textarea name="content" id="content" rows="6" class="form-control"
-                                placeholder="Write Something"></textarea>
-                        </div>
-                    </div>
-                    <label>Image</label>
-
-                    <div class="form-row">
-                        <div class="form-group col-sm-12 mt-3">
-                            <input type="file" />
-                        </div>
-                    </div>
-                    <label></label>
-                    <div class="form-row">
-
-                        <div class="form-group col-sm-12">
-                            <textarea name="comment" id="comment" rows="6" class="form-control"
-                                placeholder="Write Something"></textarea>
-                        </div>
-                        <div class="form-group col-sm-12 mt-3">
-                            <input type="submit" value="저장" class="btn btn-outline-primary rounded"
-                                onclick="location.href='mypage.html';" />
-                        </div>
-                    </div>
-                </form>
             </div>
-        </header>
+        </div>
     )
 }
 export default Blog;

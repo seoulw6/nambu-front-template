@@ -6,7 +6,10 @@
 }
 
 .nav {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav.show {
@@ -16,6 +19,7 @@
 
 .hamburger {
   cursor: pointer;
+  padding-top: 15px;
 }
 
 .hamburger.is-active .hamburger-inner {
@@ -36,9 +40,10 @@
 }
 .learning {
     background-color: #ffffff;
-    /* border: 1px solid #ccc; */
+    border: 1px solid #ccc;
     border-radius: 5px;
     padding: 50px 5px;
+    width:100%;
 }
 .learning .title {
     text-align: center;
@@ -148,3 +153,142 @@ padding:10px;
     color: black;
     outline: 1px solid black;
   }
+  @keyframes move { /* @keyframes 뒤에 애니메이션을 대표하는 임의의 이름 move를 부여 */
+    from { /* 애니메이션 시작 시점 */
+        rotate: 0;
+    }
+    to { /* 애니메이션 종료 시점 */
+        rotate: -calc(360deg / 4);
+    }
+ }
+
+  .nav__title {
+    color:#fff;
+  }
+.nav__links {
+  width:100%;
+  display: flex ;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.nav__links li {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  list-style: none;
+  font-family: 'Baloo Paaji', cursive;
+}
+.nav .logo {
+  display : block;
+}
+
+
+.open img {  
+  transform: rotate(180deg); 
+}
+
+.content {
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.header-subtitle {margin-left:20px;}
+
+
+
+.mobile .start {
+  opacity : 1;
+  padding-left: 20px;
+  transition : opacity 0.5s;
+}
+.mobile .end {
+  opacity : 0;
+  transition : opacity 0.5s;
+}
+.trans {
+  animation: move 1s  ease-in-out;
+}
+.nav__logo {
+  width: 200px;
+  text-align: center;}
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: block;
+  }
+  .controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 30px;
+  }
+  .controls button {
+    margin: 0 10px;
+    width: 100%;
+    padding: 10px 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+  }
+  @media screen and (max-width: 768px) {
+    .nav {
+      display: block;
+    }
+    .nav.show {
+      display: flex;
+      flex-direction: column;
+    }
+    .nav__links {
+      display: flex;
+      flex-direction: column;
+      padding-left: 25px;
+      align-content: flex-start;
+      align-items: flex-start;
+    }
+    .nav__links li {
+      padding: 3px 0;
+    }
+    .nav .logo {
+      display : none;
+    }
+    .mobile .start {
+      display: block ;
+    }
+    .mobile .end {
+      display: none;
+    }
+    .mobile {
+      display: block ;
+    }
+    .desktop {
+      display: none;
+    }
+  }
+  .frame { display: flex;    flex-direction: column;}
+  #learning {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+  }
+  .footer { padding-left:20px}
+  .footer span, .footer a { font-size: 12px; color: #695aa6;}
+  .greeting {    background-color: aliceblue;
+    width: 95%;
+    margin: 0 auto;
+    padding: 2%;
+    border-radius: 5px;    
+    display: flex;
+    justify-content: center;}
+    .greeting p {
+      margin-bottom: 0px;
+      padding-bottom: 0px;font-weight: 400; color:#393e46;}
+      .desktop li{
+        padding: 0px 10px;
+      }
+      .greeting-text {margin-left:15px;}
