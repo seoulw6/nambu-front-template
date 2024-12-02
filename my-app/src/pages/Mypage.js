@@ -1,17 +1,45 @@
 import React from 'react';
 import { packages } from '../datapack';
 import { blogs } from '../datablog';
-import { Link } from 'react-router-dom';
-import { FiPlus, FiPlay, FiBookmark   } from "react-icons/fi";
+import { Link,useNavigate } from 'react-router-dom';
+import { FiPlus, FiPlay, FiBookmark } from "react-icons/fi";
+import { AiTwotoneSmile } from "react-icons/ai";
+import { useState } from "react";
+import Modal from "../components/Modal";
+import { useSelector } from 'react-redux';
+
+const UserFunc = ({ user }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate(); // useNavigate 훅 사용
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => {
+        setIsModalOpen(false);
+        navigate("/LearnAdd");
+    }
+    return (
+        <tr><td>
+            <FiPlus className='form-control' onClick={openModal} />
+            <Modal isOpen={isModalOpen} closeModal={closeModal} content={
+                <div>
+                    <h2>패키지 선택</h2>
+                    <form>
+                        <input type="text" placeholder="패키지명" />
+                    </form>
+                </div>
+            } >
+            </Modal>
+        </td></tr>
+    )
+}
 
 
 
 const Mypage = () => {
+    let { user } = useSelector((state) => state.user);
+    console.log(isNaN(user));
     return (
         <div id="mypage" className="container">
             <div className="main-content container learning">
-
-
                 <h1 className="header-title">
                     <br />
                     <span className="down">My Page</span>
@@ -31,12 +59,10 @@ const Mypage = () => {
                                 )
                             })
                         }
-                        <tr><td><Link to={'/LearnAdd'}>
-                            <FiPlus className='form-control' />
-                        </Link></td></tr>
+                        <UserFunc  user={user} />
                     </tbody>
                 </table>
-                <h3 className="components-section-title ml-3">MY Blog</h3>
+                {/* <h3 className="components-section-title ml-3">MY Blog</h3>
                 <table className="table">
                     <tbody>
                         {
@@ -53,7 +79,7 @@ const Mypage = () => {
                             <FiPlus className='form-control' />
                         </Link></td></tr>
                     </tbody>
-                </table>
+                </table> */}
             </div>
         </div>
     )

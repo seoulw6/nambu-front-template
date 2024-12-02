@@ -1,4 +1,15 @@
+import React, { useState } from "react";
+
 const Contact = () => {
+    const [email, setEmail] = useState("");
+    const [content, setContent] = useState("");
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("Email:", email);
+        console.log("Message:", content);
+        // 서버로 데이터를 보내거나 추가 작업 수행
+    };
     return (
         <div id="contact" className="container">
 
@@ -8,16 +19,18 @@ const Contact = () => {
                     <span className="down">CONTACT US</span>
                 </h1>
 
-                <form action="" className="contact-form col-md-10 col-lg-8 m-auto">
+                <form  onSubmit={handleSubmit}  className="contact-form col-md-10 col-lg-8 m-auto">
 
                     <div className="form-row">
                         <div className="form-group col-sm-12">
-                            <input type="email" size="50" className="form-control" placeholder="Your email" required />
+                            <input type="email"  value={email}
+                                onChange={(e) => setEmail(e.target.value)} size="50" className="form-control" placeholder="Your email" required />
                         </div>
 
                         <div className="form-group col-sm-12">
-                            <textarea name="content" id="content" rows="6" className="form-control"
-                                placeholder="Write Something"></textarea>
+                            <textarea  value={content}
+                                onChange={(e) => setContent(e.target.value)} name="content" id="content" rows="6" className="form-control"
+                                placeholder="Write Something" ></textarea>
                         </div>
 
                         <div className="form-group col-sm-12 mt-3">

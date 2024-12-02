@@ -12,10 +12,7 @@ export const links = [
         path: '/Test'
 
     },
-    {
-        name: "Blog",
-        path: '/Blog'
-    },
+
     {
         name: "Mypage",
         path: '/Mypage'
@@ -23,9 +20,5 @@ export const links = [
     {
         name: "Sign",
         path: '/Sign'
-    },
-    {
-        name: "Contact",
-        path: '/Contact'
-    },
+    }
 ];

@@ -1,4 +1,5 @@
 import { FiPlus } from "react-icons/fi";
+import { useSelector } from 'react-redux';
 
 const LearnAdd = () => {
     return (
@@ -20,14 +21,13 @@ const LearnAdd = () => {
                     <label>문장을 입력해주세요.</label>
                     <div className="form-row">
                         <div className="form-group col-sm-12">
-                            <input type="sentence" className="form-control" placeholder="Enter Sentence" requried />
+                            <input type="sentence" className="form-control" placeholder="Enter Sentence" />
                             <FiPlus className="form-control" />
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-sm-12 mt-3">
                             <input type="submit" value="문장 등록" className="btn btn-outline-primary rounded" />
-
                         </div>
                     </div>
                 </form>

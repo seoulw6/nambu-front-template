@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { packages } from '../datapack';
 import { FiPlay, FiPlus } from "react-icons/fi";
 import { AiTwotoneSmile } from "react-icons/ai";
@@ -7,13 +7,44 @@ import { useState } from "react";
 import Modal from "../components/Modal";
 import { useSelector } from 'react-redux';
 
+const UserFunc = ({ user }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate(); // useNavigate 훅 사용
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => {
+        setIsModalOpen(false);
+        navigate("/LearnAdd");
+    }
+
+    if (isNaN(user)) {
+        return (
+            <tr><td>
+                <Link to="/mypage">내 패키지 관리</Link>
+            </td></tr>
+        )
+    } else {
+        return (
+            <tr><td>
+                <FiPlus className='form-control' onClick={openModal} />
+                <Modal isOpen={isModalOpen} closeModal={closeModal} content={
+                    <div>
+                        <h2>패키지 선택</h2>
+                        <form>
+                            <input type="text" placeholder="패키지명" />
+                        </form>
+                    </div>
+                } >
+                </Modal>
+            </td></tr>
+        )
+    }
+}
 
 const Learn = () => {
     let { user } = useSelector((state) => state.user);
-    console.log(user);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
+    console.log(isNaN(user));
+
+
 
     return (
         <div id="learn" className="container">
@@ -34,7 +65,7 @@ const Learn = () => {
                 <table className="table table-striped">
                     <tbody>
                         {
-                            packages.map(({ name, id },i) => {
+                            packages.map(({ name, id }, i) => {
                                 return (
                                     <tr key={i}>
                                         <td>
@@ -44,17 +75,7 @@ const Learn = () => {
                                 )
                             })
                         }
-                        <tr><td>
-                            <FiPlus className='form-control' onClick={openModal} />
-                            <Modal isOpen={isModalOpen} closeModal={closeModal} content={
-                                <div>
-                                    <h2>hi</h2>
-                                    <p>it's me</p>
-                                </div>
-                            } >
-
-                            </Modal>
-                        </td></tr>
+                        <UserFunc user={user} />
                     </tbody>
                 </table>
             </div>
