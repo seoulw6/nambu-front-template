@@ -1,0 +1,79 @@
+.Button {
+  display: inline-flex;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1rem;
+}
+.Button.large {
+  height: 3rem;
+  font-size: 1.25rem;
+}
+.Button.medium {
+  height: 2.25rem;
+  font-size: 1rem;
+}
+.Button.small {
+  height: 1.75rem;
+  font-size: 0.875rem;
+}
+.Button.blue {
+  background: rgb(63, 149, 241);
+}
+.Button.blue:hover {
+  background: #6faff4;
+}
+.Button.blue:active {
+  background: #117bec;
+}
+.Button.blue.outline {
+  color: rgb(63, 149, 241);
+  background: none;
+  border: 1px solid rgb(63, 149, 241);
+}
+.Button.blue.outline:hover {
+  background: rgb(63, 149, 241);
+  color: white;
+}
+.Button.black {
+  background: rgb(46, 44, 44);
+}
+.Button.black:hover {
+  background: #484545;
+}
+.Button.black:active {
+  background: #141313;
+}
+.Button.black.outline {
+  color: rgb(46, 44, 44);
+  background: none;
+  border: 1px solid rgb(46, 44, 44);
+}
+.Button.black.outline:hover {
+  background: rgb(46, 44, 44);
+  color: white;
+}
+.Button.red {
+  background: rgb(245, 71, 19);
+}
+.Button.red:hover {
+  background: #f76d44;
+}
+.Button.red:active {
+  background: #cc3609;
+}
+.Button.red.outline {
+  color: rgb(245, 71, 19);
+  background: none;
+  border: 1px solid rgb(245, 71, 19);
+}
+.Button.red.outline:hover {
+  background: rgb(245, 71, 19);
+  color: white;
+}/*# sourceMappingURL=Button.css.map */
