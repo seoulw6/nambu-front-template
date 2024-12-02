@@ -1,7 +1,7 @@
 import React from 'react';
 import { packages } from '../datapack';
 import { blogs } from '../datablog';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiPlus, FiPlay, FiBookmark } from "react-icons/fi";
 import { AiTwotoneSmile } from "react-icons/ai";
 import { useState } from "react";
@@ -35,8 +35,9 @@ const UserFunc = ({ user }) => {
 
 
 const Mypage = () => {
-    let { user } = useSelector((state) => state.user);
-    console.log(isNaN(user));
+    const { isLoggedIn, userInfo } = useSelector((state) => state.user);
+
+
     return (
         <div id="mypage" className="container">
             <div className="main-content container learning">
@@ -44,9 +45,7 @@ const Mypage = () => {
                     <br />
                     <span className="down">My Page</span>
                 </h1>
-                <p className="header-subtitle">나에게 꼭 맞는 문장으로 학습하세요!</p>
-
-                <h3 className="components-section-title ml-3">나의 학습문장 패키지 리스트
+                <h3 className="components-section-title ml-3">{userInfo?.name || '사용자'}님의 Album
                 </h3>
                 <table className="table table-striped">
                     <tbody>
@@ -59,7 +58,7 @@ const Mypage = () => {
                                 )
                             })
                         }
-                        <UserFunc  user={user} />
+                         <UserFunc user={userInfo?.name || '사용자'} />
                     </tbody>
                 </table>
                 {/* <h3 className="components-section-title ml-3">MY Blog</h3>

@@ -10,7 +10,7 @@ const Main = () => {
                     <span className="down">문장영어짱!</span>
                 </h1>
                 <p className="header-subtitle">나에게 꼭 맞는 영어학습도우미</p>
-                <Link to="/mypage" className="btn btn-primary">Visit My Works</Link>
+                <Link to="/learn" className="btn btn-primary">지금 시작하기</Link>
                 <br />
                 <br />
                 <p>외국어 단어는 많이 외웠는데,<br />
