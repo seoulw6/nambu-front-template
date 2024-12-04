@@ -4,17 +4,37 @@ const userSlice = createSlice({
     name: 'user',
     initialState: {
         isLoggedIn: false,
-        userInfo: null,
-        VisitCount: 0, // 추가
+        userInfo: {
+            name: '',
+            lastVisit: '',
+            visitCount: 0,
+        },
+        token: '',
     },
     reducers: {
         login: (state, action) => {
             state.isLoggedIn = true;
-            state.userInfo = action.payload;
+            state.userInfo = {
+                name: action.payload.name,
+                lastVisit: action.payload.lastVisit,
+                visitCount: action.payload.visitCount,
+            }; // 사용자 정보 저장
+            state.token = action.payload.token; // 토큰 저장
         },
         logout: (state) => {
             state.isLoggedIn = false;
-            state.userInfo = null;
+            state.userInfo = {
+                name: '',
+                lastVisit: '',
+                visitCount: 0,
+            };
+            state.token = '';
+        },
+        incrementVisitCount: (state) => {
+            state.VisitCount += 1; // 방문 횟수 증가
+        },
+        setToken: (state, action) => {
+            state.token = action.payload; // 토큰 설정
         },
     },
 });

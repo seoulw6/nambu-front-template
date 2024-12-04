@@ -2,7 +2,6 @@ import "./assets/css/meyawo.css";
 import "./assets/css/mystyle.css";
 import "./assets/vendors/themify-icons/css/themify-icons.css";
 
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Main from "./pages/Main";
 import Learn from "./pages/Learn";
@@ -14,7 +13,7 @@ import Join from "./pages/Join";
 import Mypage from "./pages/Mypage";
 import Mytest from "./pages/Mytest";
 import LearnAdd from "./pages/LearnAdd";
-import Package from "./pages/Package";
+import Album from "./pages/Album";
 import BlogAdd from "./pages/BlogAdd";
 import BlogDetail from "./pages/BlogDetail";
 import Learning from "./pages/Learning";
@@ -51,7 +50,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/mytest' element={<Mytest />} />
           <Route path='/learnAdd' element={<LearnAdd />} />
-          <Route path='/package/:id' element={<Package />} />
+          <Route path='/album/:id' element={<Album />} />
           <Route path='/blogAdd' element={<BlogAdd />} />
           <Route path='/blog/:id' element={<BlogDetail />} />
           <Route path='/learning/:id' element={<Learning />} />

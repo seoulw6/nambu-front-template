@@ -1,41 +1,77 @@
-import React from 'react';
-import { packages } from '../datapack';
-import { blogs } from '../datablog';
-import { Link, useNavigate } from 'react-router-dom';
-import { FiPlus, FiPlay, FiBookmark } from "react-icons/fi";
-import { AiTwotoneSmile } from "react-icons/ai";
-import { useState } from "react";
-import Modal from "../components/Modal";
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { Link,useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
-const UserFunc = ({ user }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const navigate = useNavigate(); // useNavigate 훅 사용
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => {
-        setIsModalOpen(false);
-        navigate("/LearnAdd");
-    }
-    return (
-        <tr><td>
-            <FiPlus className='form-control' onClick={openModal} />
-            <Modal isOpen={isModalOpen} closeModal={closeModal} content={
-                <div>
-                    <h2>패키지 선택</h2>
-                    <form>
-                        <input type="text" placeholder="패키지명" />
-                    </form>
-                </div>
-            } >
-            </Modal>
-        </td></tr>
-    )
-}
+import { FiPlay } from "react-icons/fi";
+
+import { useSelector } from 'react-redux';
+import AddAlbum from '../components/AddAlbum';
+//public
 
 
 
 const Mypage = () => {
-    const { isLoggedIn, userInfo } = useSelector((state) => state.user);
+    const { userInfo, token } = useSelector((state) => state.user);
+    const [packages, setPackages] = useState([]); // 앨범 데이터를 저장하는 상태
+    const [loading, setLoading] = useState(true); // 로딩 상태
+    const [error, setError] = useState(null); // 에러 상태
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!token) {
+            setLoading(false);
+            setError('로그인이 필요합니다.');
+            return () => {
+                setTimeout(() => {
+                    navigate("/Sign");
+                }, 300); // 300ms 딜레이
+            };
+        }
+        // API 호출
+        const fetchPackages = async () => {
+            setLoading(true);
+            try {
+                const response = await axios.get(
+                    'https://yfwebapp-eff7epg4dvhrftdv.koreacentral-01.azurewebsites.net/api/albums/my',
+                    { headers: { Authorization: `Bearer ${token}` } }
+                );
+
+                console.log(response.data);
+                if (Array.isArray(response.data.albums)) {
+                    setPackages(response.data.albums);
+                } else {
+                    throw new Error("올바른 데이터 형식이 아닙니다.");
+                }
+
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+        if (token) {
+            fetchPackages();
+        } else {
+            setError("로그인이 필요합니다.2");
+        }
+    }, [token]);
+
+
+    // const handleAddPackage = async (packageName) => {
+    //     try {
+    //         const response = await axios.post(
+    //             'https://yfwebapp-eff7epg4dvhrftdv.koreacentral-01.azurewebsites.net/api/albums',
+    //             { name: packageName },
+    //             { headers: { Authorization: `Bearer ${token}` } }
+    //         );
+    //         setPackages((prevPackages) => [...prevPackages, response.data]);
+    //     } catch (err) {
+    //         setError('앨범 추가에 실패했습니다.');
+    //     }
+    // };
+
+    if (loading) return <p>로딩 중...</p>;
+    if (error) return <p>에러 발생: {error}</p>;
+    if (!Array.isArray(packages)) return <p>데이터를 불러올 수 없습니다.</p>;
 
 
     return (
@@ -58,7 +94,7 @@ const Mypage = () => {
                                 )
                             })
                         }
-                         <UserFunc user={userInfo?.name || '사용자'} />
+                        <AddAlbum />
                     </tbody>
                 </table>
                 {/* <h3 className="components-section-title ml-3">MY Blog</h3>

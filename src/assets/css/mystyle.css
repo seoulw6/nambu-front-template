@@ -292,3 +292,14 @@ padding:10px;
         padding: 0px 10px;
       }
       .greeting-text {margin-left:15px;}
+
+
+      . mobilehidden {
+        display: block;
+      }
+      @media screen and (max-width: 768px) {
+        .mobilehidden {
+          display: none;
+        }
+        
+      }

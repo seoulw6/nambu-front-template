@@ -1,21 +1,12 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './userSlice'; // 정확한 경로 확인
+import albumReducer from './albumSlice'; // 정확한 경로 확인
 
-let packagesName =
-    createSlice({
-        name: 'packagesName',
-        initialState: 'A0 초급 Reading',
-        reducers: {
-            setPackagesName: (state) => {
-                return state
-            }
-        }
-    })
 
 const store = configureStore({
     reducer: {
         user: userReducer,
-        packagesName: packagesName.reducer
+        AlbumName: albumReducer
     },
 });
 

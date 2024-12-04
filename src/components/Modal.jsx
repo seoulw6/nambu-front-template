@@ -30,7 +30,7 @@ function Modal({ isOpen, content, closeModal }) {
                 }}
             >
                 <div>{content}</div>
-                <button onClick={closeModal} className="btn btn-primary">추가</button>
+                <button onClick={closeModal} className="btn btn-primary">저장</button>
             </div>
         </div>
     );
